@@ -1,6 +1,16 @@
 import json
+from os import system, name
+import sys
+import time
 
+def clear_terminal():
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
 
+    # for mac and linux
+    else:
+        _ = system('clear')
 
 def load_following(jsonFile):
     with open(jsonFile, 'r') as file:
@@ -54,7 +64,6 @@ def save(not_following_me_back, Im_not_following_back):
         for i in range(len(Im_not_following_back)):
             file.write(f'{i}: {Im_not_following_back[i]}\n')
 
-
 def main():
     following_list = load_following('following.json')
     follower_list = load_followers('followers_1.json')
@@ -66,9 +75,23 @@ def main():
 
     save(not_following_me_back, Im_not_following_back)
 
-
-
-
 if __name__ == '__main__':
-    main()
-    print("The Program has completed. Please check output.txt for the result.\n")
+    while True:
+        clear_terminal()
+            
+        print("Are you prepared to end many friendships? Please press 'Y' for yes or 'N' for no.")
+        answer = input("Y/N: ")
+
+        if answer == "Y":
+            print("The result will be out soon.")
+            main()
+            time.sleep(3)
+            print("The program has completed. Please check output.txt for the result. Enjoy!")
+            break
+        elif answer == "N":
+            print("You coward!")
+            time.sleep(3)
+        else:
+            print("Please press 'Y' for yes or 'N' for no.")
+            time.sleep(3)
+

@@ -12,3 +12,8 @@
 8. Once the files are downloaded, copy and paste `followers_1.json` and `following.json` into this folder.
 9. Run the code in `main.py`. The results will be shown in `output.txt`.
 
+
+
+
+
+Are you prepared to end many friendships?

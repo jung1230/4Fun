@@ -44,48 +44,31 @@ def compare_following_follower(following_list, follower_list):
 
     return not_following_me_back, Im_not_following_back
 
-def output_markdown(not_following_me_back, Im_not_following_back):
-    output = ""
-
-    # Users not following you back
-    output += "### Users Not Following You Back:\n\n"
-    output += f"- **Total**: {len(not_following_me_back)}\n\n"
-    output += "| Username        |\n"
-    output += "|-----------------|\n"
-    for username in not_following_me_back:
-        output += f"| {username}           |\n"
-    output += "\n"
-
-    # Users you are not following back
-    output += "### Users You Are Not Following Back:\n\n"
-    output += f"- **Total**: {len(Im_not_following_back)}\n\n"
-    output += "| Username        |\n"
-    output += "|-----------------|\n"
-    for username in Im_not_following_back:
-        output += f"| {username}           |\n"
-    output += "\n"
-
-    return output
+def save(not_following_me_back, Im_not_following_back):
+    with open("output.txt", 'w') as file:
+        file.write(f'Number of users not following me back: {len(not_following_me_back)}\n')
+        for i in range(len(not_following_me_back)):
+            file.write(f'{i}: {not_following_me_back[i]}\n')
+        
+        file.write(f'------------------------------------------------\n\nNumber of users I am not following back: {len(Im_not_following_back)}\n')
+        for i in range(len(Im_not_following_back)):
+            file.write(f'{i}: {Im_not_following_back[i]}\n')
 
 
 def main():
-    # Load following and followers lists from JSON files
     following_list = load_following('following.json')
     follower_list = load_followers('followers_1.json')
     following_list.sort()
     follower_list.sort()
     # test_loading(following_list, follower_list)
 
-    # Compare two lists
     not_following_me_back, Im_not_following_back = compare_following_follower(following_list, follower_list)
 
-    # Generate Markdown output
-    markdown_output = output_markdown(not_following_me_back, Im_not_following_back)
+    save(not_following_me_back, Im_not_following_back)
 
-    # Print or write Markdown output to a file
-    print(markdown_output)
 
 
 
 if __name__ == '__main__':
     main()
+    print("The Program has completed. Please check output.txt for the result.\n")

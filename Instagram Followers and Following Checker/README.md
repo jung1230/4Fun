@@ -9,7 +9,7 @@
 5. Scroll down and select `Followers and following`, then click `Next`.
 6. Choose `Download to device` and click `Next`.
 7. Set the Data range to `All time` and the format to `.json`.
-8. Once the files are downloaded, copy and paste `followers_1.json` and `following.json` into this folder.
-9. Open the folder using any IDE, such as Visual Studio Code, and run the code in `main.py`. The results will be shown in `output.txt`.
+8. Once the files are downloaded, copy and paste `followers_1.json` and `following.json` into this folder(The folder with this README file).
+9. Open the folder using any IDE, such as Visual Studio Code or Google Colab, and run the code in `main.py`. The results will be shown in `output.txt`.
 
 Are you prepared to end many friendships?

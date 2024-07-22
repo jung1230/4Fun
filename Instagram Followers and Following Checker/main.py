@@ -76,22 +76,6 @@ def main():
     save(not_following_me_back, Im_not_following_back)
 
 if __name__ == '__main__':
-    while True:
-        clear_terminal()
-            
-        print("Are you prepared to end many friendships? Please press 'Y' for yes or 'N' for no.")
-        answer = input("Y/N: ")
+    main()
 
-        if answer == "Y":
-            print("The result will be out soon.")
-            main()
-            time.sleep(3)
-            print("The program has completed. Please check output.txt for the result. Enjoy!")
-            break
-        elif answer == "N":
-            print("You coward!")
-            time.sleep(3)
-        else:
-            print("Please press 'Y' for yes or 'N' for no.")
-            time.sleep(3)
 
